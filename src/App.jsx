@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles.css'
 
  function Square({ value }) {
-  return <button className="square">{value}</button>;
+  return <button className="square" onClich={onSquareClick}>{value}</button>;
 }
 
 
