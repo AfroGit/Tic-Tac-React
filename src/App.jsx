@@ -11,7 +11,7 @@ import './styles.css'
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
-  function handleClick() {//Defined to update the squares array holding your board’s state:
+  function handleClick(i) {//Defined to update the squares array holding your board’s state:
     const nextSquares = squares.slice();// returns a shallow copy of a portion of an array into a new array 
     nextSquares[i] = "X";//able to update any square,using its index
     setSquares(nextSquares);
