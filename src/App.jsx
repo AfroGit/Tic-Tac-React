@@ -7,7 +7,8 @@ export default function Game() {
     const [history, setHistory] = useState([Array(9).fill(null)]);//an array of 9 nulls
     const currentSquares = history[history.length - 1];//read the last squares array from the history
     function handlePlay(nextSquares) {
-    // TODO
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
   }
   
   return(
