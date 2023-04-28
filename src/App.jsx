@@ -13,7 +13,7 @@ export default function Board() {
    const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {//Defined to update the squares array holding your board’s state:
-     if (squares[i]) {
+     if (squares[i] || calculateWinner(squares)) {
       return;
     }
     const nextSquares = squares.slice();// returns a shallow copy of a portion of an array into a new array 
