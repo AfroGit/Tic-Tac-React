@@ -9,13 +9,22 @@ import './styles.css'
 
 
 export default function Board() {
-   const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+   const [xIsNext, setXIsNext] = useState(true);//determine which player goes next
+   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {//Defined to update the squares array holding your board’s state:
+     if (squares[i]) {
+      return;
+    }
     const nextSquares = squares.slice();// returns a shallow copy of a portion of an array into a new array 
-    nextSquares[i] = "X";//able to update any square,using its index
-    setSquares(nextSquares);
+        if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
+    //nextSquares[i] = "X";//able to update any square,using its index
+     setSquares(nextSquares);
+     setXIsNext(!xIsNext);
   }
   
   
