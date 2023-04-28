@@ -33,12 +33,11 @@ export default function Game() {
 }
 
 
- function Board() {
-   const [xIsNext, setXIsNext] = useState(true);//determine which player goes next
-   const [squares, setSquares] = useState(Array(9).fill(null));
+ function Board({ xIsNext, squares, onPlay }) {
+  
 
   function handleClick(i) {//Defined to update the squares array holding your board’s state:
-     if (squares[i] || calculateWinner(squares)) {
+     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     const nextSquares = squares.slice();// returns a shallow copy of a portion of an array into a new array 
@@ -47,9 +46,7 @@ export default function Game() {
     } else {
       nextSquares[i] = "O";
     }
-    //nextSquares[i] = "X";//able to update any square,using its index
-     setSquares(nextSquares);
-     setXIsNext(!xIsNext);
+     onPlay(nextSquares);
   }
 
 
