@@ -9,7 +9,7 @@ import './styles.css'
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
-  function handleClick() {
+  function handleClick() {//Defined to update the squares array holding your board’s state:
     const nextSquares = squares.slice();
     nextSquares[0] = "X";
     setSquares(nextSquares);
